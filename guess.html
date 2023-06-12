@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Guess the number game
+    - maskinen må lage et tilfeldig tall, 1-100
+    - brukeren mp kunne skrive inn hvilken tall som gjettes
+    - en knapp for å "sende" tallet 
+    - når 
+    - finne ut om tallet var riktig, for høyt eller for lavt
+    - tilbakemeling til brukeren, skriver ut en beskjed
+
+    -->
+    <h1>Guess the Number</h1>
+    <p id="tilbakemeling"></p>
+    <h3 id="antall_gjett">0</h3>
+    <h2 id="timer">Tid 0 sec</h2>
+
+    <input id="gjette_felt" type="text">
+    <button id="gjette_knapp">Guess</button>
+    <button id="restart">restart</button>
+    
+<script>
+
+    var EL_gjette_felt = document.querySelector('#gjette_felt')
+    var EL_knapp = document.querySelector('#gjette_knapp')
+    var EL_tilbakemeling = document.querySelector('#tilbakemeling')
+    var EL_nomerteller = document.querySelector('#nomerteller')
+    var EL_antall_gjett = document.querySelector('#antall_gjett')
+    var EL_antall_gjett = 0
+    var EL_restart = document.querySelector('#restart')
+    var EL_timer = document.querySelector('#timer')
+
+    EL_antall_gjett.innerHTML = EL_antall_gjett + " Counter of Guess"
+
+    var tilfeldig_tall = Math.floor(Math.random()*100);
+
+    function gjett(){ //fuksjon som kjører nå vi trykker på knappen
+        // hente tallet vi skrev inn. leser verdi fra gjette_felt
+        console.log(EL_gjette_felt.value)
+
+      if (EL_gjette_felt.value == tilfeldig_tall) {
+          EL_tilbakemeling.innerHTML = 'det var riktig'
+      }
+        else if (EL_gjette_felt.value > tilfeldig_tall) {
+          EL_tilbakemeling.innerHTML = 'før høyt tall prøv lavere tall'
+      }
+        else if (EL_gjette_felt.value < tilfeldig_tall) {
+          EL_tilbakemeling.innerHTML = 'før laft tall prøv et høyere tall'
+      }
+        EL_antall_gjett++
+        EL_antall_gjett.innerHTML = EL_antall_gjett + " Counter of Guess"
+    }
+  
+    function restart(){
+      tilfeldig_tall = Math.floor(Math.random()*100);
+      EL_antall_gjett = 0
+      EL_antall_gjett.innerHTML = ""
+    }
+    var teller = 0
+    function myTimer(){
+      console.log('timer:'+teller)
+      teller++
+      EL_timer.innerHTML ="Tid:"+teller+"sec"
+    }
+    
+    setlnterval(myTimer, 1000)
+
+    EL_restart.addEventListener('click', restart)
+    EL_knapp.addEventListener('click', gjett) // når vi klikker på knapp, kjør funksjon gjett
+
+
+    console.log(tilfeldig_tall)
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="h1">klikke spill</h1>
+    <h3 id="mitt_tall"></h3> 
+    <p id="p_tag">yes... yes!!!</p>
+    <p class="p_class">du skal tryke mye!!!</p>
+   
+    <button id="button">Klikk</button>
+
+<script>
+    
+    var EL_p_tag = document.querySelector('#p_tag')
+    var EL_tall = document.querySelector('#mitt_tall')
+    
+
+
+    var tall = Math.random();
+    function skriv_tekst(){
+        console.log('tall')
+        tall += Math.random();
+        if (tall >100000){
+            document.querySelector('#p_tag').innerHTML = 'tall høyere enn 100000'
+        } else if (tall <100000){
+            document.querySelector('#p_tag').innerHTML = 'tall lavere enn 100000 prøv å ryke mer en 10000'
+        }
+        EL_tall.innerHTML = tall
+    }
+    
+    document.querySelector('#button').addEventListener('click',skriv_tekst )
+    document.querySelector('#p_tag').innerHTML = 'du har ingen poeng'
+    
+    
+
+
+    var tekst = "<- tryk her";
+    var hemmelig_passord = "Mitt_passord1"
+
+    document.write(tekst)
+
+    console.log("dette er en consol beskjed")
+
+
+
+</script> 
+
+</body>
+</html>
+
+
+
+

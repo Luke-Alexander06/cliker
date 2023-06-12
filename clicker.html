@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clicker</title>
+</head>
+<body>
+    <style>
+        #knapp_bilde {
+
+        }
+    </style>
+    <!--  min clicker
+    en rød knap som blir kliket på
+    opp graderinger som gjører klikene mer verdifule
+    en poeng sum
+
+    -->
+    
+    
+    <h1>Button Cliker</h1>
+    <button id="knap">
+    <img id="knapp_bilde" src="knap.png" alt="">
+    
+    <h3 id="antall_trøk">0</h3>
+    </button>
+
+<script>
+var EL_antall_trøk = document.querySelector('#antall_trøk')
+var EL_knap = document.querySelector('#knap')
+var EL_knap_bilde = document.querySelector('#knapp_bilde')
+var antall_trøk = 0
+
+function count(){
+    antall_trøk += 1
+    EL_antall_trøk.innerHTML = antall_trøk
+    EL_knap_bilde.src = "knap troket.png"
+    console.log(EL_knap_bilde)
+    setTimeout(reset_image, 60)
+}
+
+function teller(){
+    EL_antall_trøk = 0
+}
+
+EL_knap.addEventListener('click', count)
+
+function reset_image(){
+    EL_knap_bilde.src = "knap.png"
+    console.log("img reset")
+}
+
+
+
+    
+
+</script>
+</body>
+</html>
